@@ -16,11 +16,7 @@ include_once __DIR__ . '/lib/autoload.php';
 
 
 Settings::get();
+Order::get();
 
-$val = Settings::get()->option('no_exists', 'deafult value') ;
-add_action( 'plugins_loaded', function() {
-
-
-} );
 
 
