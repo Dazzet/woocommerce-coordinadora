@@ -15,8 +15,10 @@ include_once __DIR__ . '/lib/autoload.php';
  */
 
 
-Settings::get();
-Order::get();
+// Initialize Woocommerce Settings page
+Wordpress\Settings::instance()->start();
 
+// Initialize Order meta box
+Wordpress\Order::instance()->start();
 
 

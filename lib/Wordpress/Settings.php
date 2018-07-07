@@ -1,7 +1,7 @@
-<?php namespace WCCoordinadora;
+<?php namespace WCCoordinadora\Wordpress;
 
 /**
- * Creates the settings page and process the values
+ * Creates the settings page in Woocommerce > Settings > Coordinadora and process the values
  */
 class Settings
 {
@@ -15,7 +15,7 @@ class Settings
     /**
      * Create an unique object
      */
-    static function get()
+    static function instance()
     {
         static $obj;
         if (!isset($obj)) {
@@ -30,6 +30,11 @@ class Settings
      */
     private function __construct()
     {
+
+    }
+
+    public function start()
+    {
         if (!$this->_initialized) {
             add_action('woocommerce_settings_tabs_array', array($this, 'addSettingsTabs'), 70);
             add_action('woocommerce_settings_tabs_'. self::SETTINGS_NAMESPACE , array($this, 'tabContent'));
@@ -38,7 +43,6 @@ class Settings
         }
 
         return $this;
-
     }
 
     /**
@@ -58,6 +62,9 @@ class Settings
         woocommerce_admin_fields( $this->getFields() );
     }
 
+    /**
+     * Handle the save data
+     */
     public function updateSettings()
     {
         woocommerce_update_options( $this->getFields() );
@@ -69,24 +76,42 @@ class Settings
     private function getFields()
     {
         $fields = array(
-            'section_title' => array(
-                'name' => __('Section name', 'wc-coordinadora'),
+            'client_info_start' => array(
+                'name' => __('Business info', 'wc-coordinadora'),
                 'type' => 'title',
-                'desc' => 'Description',
+                'desc' => __('Business information required for the WebService'),
             ),
-            'example_input' => array(
-                'name' => __('Example input', 'wc-coordinadora'),
+            'client_id' => array(
+                'name' => __('Client VAT or ID', 'wc-coordinadora'),
                 'type' => 'text',
-                'desc' => __('Helper text', 'wc-coordinadora'),
+                'desc' => __('Your business ID or NIT (For Colombia)', 'wc-coordinadora'),
             ),
-            'description' => array(
-                'name' => __('Textarea field', 'wc-coordinadora'),
-                'type' =>'textarea',
-                'desc' => __('Textarea desc', 'wc-coordinadora'),
+            'client_div' => array(
+                'name' => __('Client Division', 'wc-coordinadora'),
+                'type' => 'text',
+                'desc' => __('', 'wc-coordinadora'),
             ),
-            'section_end' => array(
+            'client_info_end' => array(
                 'name' => __('Section end', 'wc-coordinadora'),
                 'type' => 'sectionend',
+            ),
+            'api_info_start' => array(
+                'name' => __('Webservice information', 'wc-coordinadora'),
+                'type' => 'title',
+                'desc' => __('This information should be provided by Coordinadora', 'wc-coordinadora')
+            ),
+            'api_key' => array(
+                'name' => __('Api Key', 'wc-coordinadora'),
+                'type' => 'text'
+            ),
+            'api_pass' => array(
+                'name' => __('Api Password', 'wc-coordinadora'),
+                'type' => 'password'
+
+            ),
+            'api_info_end' => array(
+                'name' => __('Section End', 'wc-coordinadora'),
+                'type' => 'sectionend'
             )
         );
 
