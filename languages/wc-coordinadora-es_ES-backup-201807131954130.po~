@@ -1,0 +1,82 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Woocommerce Coordinadora\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-07-13 19:50+0000\n"
+"PO-Revision-Date: 2018-07-13 19:50+0000\n"
+"Last-Translator: admin <mario.yepes@dazzet.co>\n"
+"Language-Team: Español\n"
+"Language: es_ES\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Loco https://localise.biz/"
+
+#: lib/Wordpress/Settings.php:104
+msgid "Api Key"
+msgstr "Llave del api"
+
+#: lib/Wordpress/Settings.php:108
+msgid "Api Password"
+msgstr ""
+
+#: lib/Wordpress/Settings.php:80
+msgid "Business info"
+msgstr ""
+
+#: lib/Wordpress/Settings.php:90
+msgid "Client Division"
+msgstr ""
+
+#: lib/Wordpress/Settings.php:85
+msgid "Client VAT or ID"
+msgstr ""
+
+#: lib/Wordpress/Settings.php:53
+msgid "Coordinadora"
+msgstr ""
+
+#: lib/Wordpress/OrderAdmin.php:40
+msgid "Coordinadora Mercantil Tracking"
+msgstr ""
+
+#. URI of the plugin
+msgid "https://dazzet.co"
+msgstr ""
+
+#. Author of the plugin
+msgid "Mario Yepes <mario.yepes@dazzet.co>"
+msgstr ""
+
+#. Description of the plugin
+msgid "Package tracking from Coordinadora Mercantil in Colombia"
+msgstr ""
+
+#: lib/Wordpress/Settings.php:113
+msgid "Section End"
+msgstr ""
+
+#: lib/Wordpress/Settings.php:95
+msgid "Section end"
+msgstr ""
+
+#: lib/Wordpress/Settings.php:101
+msgid "This information should be provided by Coordinadora"
+msgstr ""
+
+#: lib/Wordpress/OrderMyAccount.php:34
+msgid "Track order with Coordinadora"
+msgstr ""
+
+#: lib/Wordpress/Settings.php:99
+msgid "Webservice information"
+msgstr ""
+
+#. Name of the plugin
+msgid "Woocommerce Coordinadora"
+msgstr ""
+
+#: lib/Wordpress/Settings.php:87
+msgid "Your business ID or NIT (For Colombia)"
+msgstr ""

@@ -7,6 +7,7 @@
  * Version: 0.1
  * Author: Mario Yepes <mario.yepes@dazzet.co>
  * Text Domain: wc-coordinadora
+ * Domain Path: /languages
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -15,8 +16,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 include_once __DIR__ . '/lib/autoload.php';
 
-add_action('plugins_loaded', function() {
-    load_plugin_textdomain( 'wc-coordinadora', FALSE, basename(dirname(__FILE__)), '/languages/');
+add_action('init', function() {
+    load_plugin_textdomain(
+        'wc-coordinadora',
+        false,
+        dirname( plugin_basename(__FILE__)) . '/languages'
+    );
 });
 
 

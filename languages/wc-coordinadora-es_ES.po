@@ -1,0 +1,83 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Woocommerce Coordinadora\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-07-13 19:50+0000\n"
+"PO-Revision-Date: 2018-07-13 19:53+0000\n"
+"Last-Translator: admin <mario.yepes@dazzet.co>\n"
+"Language-Team: Español\n"
+"Language: es_ES\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Loco https://localise.biz/"
+
+#: lib/Wordpress/Settings.php:104
+msgid "Api Key"
+msgstr "Llave del api"
+
+#: lib/Wordpress/Settings.php:108
+msgid "Api Password"
+msgstr "Contraseña del Api"
+
+#: lib/Wordpress/Settings.php:80
+msgid "Business info"
+msgstr "Nombre del negocio"
+
+#: lib/Wordpress/Settings.php:90
+msgid "Client Division"
+msgstr "División del cliente"
+
+#: lib/Wordpress/Settings.php:85
+msgid "Client VAT or ID"
+msgstr "Nit del cliente"
+
+#: lib/Wordpress/Settings.php:53
+msgid "Coordinadora"
+msgstr "Coordinadora Mercantil"
+
+#: lib/Wordpress/OrderAdmin.php:40
+msgid "Coordinadora Mercantil Tracking"
+msgstr "Rastreo en Coordinadora Mercantil"
+
+#. URI of the plugin
+msgid "https://dazzet.co"
+msgstr ""
+
+#. Author of the plugin
+msgid "Mario Yepes <mario.yepes@dazzet.co>"
+msgstr ""
+
+#. Description of the plugin
+msgid "Package tracking from Coordinadora Mercantil in Colombia"
+msgstr ""
+"Seguimiento de paquetes con Coordinadora Mercantil en Medellín Colombia"
+
+#: lib/Wordpress/Settings.php:113
+msgid "Section End"
+msgstr "Fin de la Sección"
+
+#: lib/Wordpress/Settings.php:95
+msgid "Section end"
+msgstr "Fin de la sección"
+
+#: lib/Wordpress/Settings.php:101
+msgid "This information should be provided by Coordinadora"
+msgstr "Esta información debe ser provista por Coordinadora"
+
+#: lib/Wordpress/OrderMyAccount.php:34
+msgid "Track order with Coordinadora"
+msgstr "Seguir pedido con Coordinadora"
+
+#: lib/Wordpress/Settings.php:99
+msgid "Webservice information"
+msgstr "Información del WebService"
+
+#. Name of the plugin
+msgid "Woocommerce Coordinadora"
+msgstr "Woocommerce Coordinadora"
+
+#: lib/Wordpress/Settings.php:87
+msgid "Your business ID or NIT (For Colombia)"
+msgstr "El número ID de su negocio o NIT (Para Colombia)"
