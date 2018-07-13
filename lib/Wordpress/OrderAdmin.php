@@ -3,7 +3,7 @@
 /**
  * Create a meta-box on the order page
  */
-class Order
+class OrderAdmin
 {
     private $_initialized = false;
 
@@ -11,7 +11,7 @@ class Order
     {
         static $obj;
         if (!isset($obj)) {
-            $obj = new Order;
+            $obj = new self();
         }
         return $obj;
     }
