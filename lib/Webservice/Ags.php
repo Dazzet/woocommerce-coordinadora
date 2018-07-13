@@ -21,18 +21,18 @@ class Ags
      * @param string $wsdl Path (local or http(s) ) to the WSDL description
      * @link http://sandbox.coordinadora.com/ags/1.4/server.php?doc
      */
-    static function instance($wsdl)
+    static function instance($client)
     {
         static $obj;
         if (!isset($obj)) {
-            $obj = new Ags($wsdl);
+            $obj = new self($client);
         }
         return $obj;
     }
 
-    private function __construct($wsdl)
+    private function __construct($client)
     {
-        $this->wsdl = $wsdl;
+        $this->client = $client;
     }
 
     /**
@@ -40,10 +40,6 @@ class Ags
      */
     public function start()
     {
-        if (!$this->_initialized) {
-            $this->client = new SoapClient($this->wsdl);
-            $this->_initialized = true;
-        }
         return $this;
     }
 

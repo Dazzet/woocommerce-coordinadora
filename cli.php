@@ -2,7 +2,9 @@
 
 include __DIR__ . '/lib/autoload.php';
 
-Webservice\Ags::instance('http://sandbox.coordinadora.com/ags/1.4/server.php?wsdl')
+$client = new \SoapClient('http://sandbox.coordinadora.com/ags/1.4/server.php?wsdl');
+
+Webservice\Ags::instance($client)
     ->start()
     ->exe('departamentos')
     ->printR()
