@@ -32,10 +32,10 @@ class OrderMyAccount
 
 ?>
     <h2><?php _e('Track order with Coordinadora', 'wc-coordinadora') ?></h2>
-    <form method="post" action="http://www.coordinadora.com/portafolio-de-servicios/servicios-en-linea/rastrear-guias/">
+    <form method="post" action="http://www.coordinadora.com/portafolio-de-servicios/servicios-en-linea/rastrear-guias/" target="_blank">
         <input type="text" name="coor_guia" value="<?php echo $code ?>" readonly="readonly"/>
         <input type="hidden" name="coor_guia_home" value="true">
-        <button class="button" type="submit" taget="_blank"><?php _e('Track', 'wc-coordinadora') ?></button>
+        <button class="button" type="submit" ><?php _e('Track', 'wc-coordinadora') ?></button>
     </form>
 <?php
     }
