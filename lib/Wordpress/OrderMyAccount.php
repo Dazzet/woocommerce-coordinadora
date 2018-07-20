@@ -35,7 +35,7 @@ class OrderMyAccount
     <form method="post" action="http://www.coordinadora.com/portafolio-de-servicios/servicios-en-linea/rastrear-guias/">
         <input type="text" name="coor_guia" value="<?php echo $code ?>" readonly="readonly"/>
         <input type="hidden" name="coor_guia_home" value="true">
-        <button class="button" type="submit"><?php _e('Track') ?></button>
+        <button class="button" type="submit" taget="_blank"><?php _e('Track', 'wc-coordinadora') ?></button>
     </form>
 <?php
     }

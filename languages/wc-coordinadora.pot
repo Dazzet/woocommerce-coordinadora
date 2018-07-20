@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Woocommerce Coordinadora\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-07-13 19:50+0000\n"
+"POT-Creation-Date: 2018-07-20 19:39+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: \n"
@@ -14,6 +14,38 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Loco https://localise.biz/"
 
+#: lib/Wordpress/Settings.php:53
+msgid "Coordinadora"
+msgstr ""
+
+#: lib/Wordpress/Settings.php:80
+msgid "Business info"
+msgstr ""
+
+#: lib/Wordpress/Settings.php:85
+msgid "Client VAT or ID"
+msgstr ""
+
+#: lib/Wordpress/Settings.php:87
+msgid "Your business ID or NIT (For Colombia)"
+msgstr ""
+
+#: lib/Wordpress/Settings.php:90
+msgid "Client Division"
+msgstr ""
+
+#: lib/Wordpress/Settings.php:95
+msgid "Section end"
+msgstr ""
+
+#: lib/Wordpress/Settings.php:99
+msgid "Webservice information"
+msgstr ""
+
+#: lib/Wordpress/Settings.php:101
+msgid "This information should be provided by Coordinadora"
+msgstr ""
+
 #: lib/Wordpress/Settings.php:104
 msgid "Api Key"
 msgstr ""
@@ -22,24 +54,28 @@ msgstr ""
 msgid "Api Password"
 msgstr ""
 
-#: lib/Wordpress/Settings.php:80
-msgid "Business info"
-msgstr ""
-
-#: lib/Wordpress/Settings.php:90
-msgid "Client Division"
-msgstr ""
-
-#: lib/Wordpress/Settings.php:85
-msgid "Client VAT or ID"
-msgstr ""
-
-#: lib/Wordpress/Settings.php:53
-msgid "Coordinadora"
+#: lib/Wordpress/Settings.php:113
+msgid "Section End"
 msgstr ""
 
 #: lib/Wordpress/OrderAdmin.php:40
 msgid "Coordinadora Mercantil Tracking"
+msgstr ""
+
+#: lib/Wordpress/OrderMyAccount.php:34
+msgid "Track order with Coordinadora"
+msgstr ""
+
+#: lib/Wordpress/OrderMyAccount.php:38
+msgid "Track"
+msgstr ""
+
+#. Name of the plugin
+msgid "Woocommerce Coordinadora"
+msgstr ""
+
+#. Description of the plugin
+msgid "Package tracking from Coordinadora Mercantil in Colombia"
 msgstr ""
 
 #. URI of the plugin
@@ -48,36 +84,4 @@ msgstr ""
 
 #. Author of the plugin
 msgid "Mario Yepes <mario.yepes@dazzet.co>"
-msgstr ""
-
-#. Description of the plugin
-msgid "Package tracking from Coordinadora Mercantil in Colombia"
-msgstr ""
-
-#: lib/Wordpress/Settings.php:113
-msgid "Section End"
-msgstr ""
-
-#: lib/Wordpress/Settings.php:95
-msgid "Section end"
-msgstr ""
-
-#: lib/Wordpress/Settings.php:101
-msgid "This information should be provided by Coordinadora"
-msgstr ""
-
-#: lib/Wordpress/OrderMyAccount.php:34
-msgid "Track order with Coordinadora"
-msgstr ""
-
-#: lib/Wordpress/Settings.php:99
-msgid "Webservice information"
-msgstr ""
-
-#. Name of the plugin
-msgid "Woocommerce Coordinadora"
-msgstr ""
-
-#: lib/Wordpress/Settings.php:87
-msgid "Your business ID or NIT (For Colombia)"
 msgstr ""

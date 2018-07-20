@@ -11,7 +11,7 @@ gulp.task('rsync', function() {
   const dirname = path.basename(__dirname);
 
   return gulp.src([
-    'languages/*', 'wsdl/*', '*.php', 'readme.txt', 'lib/*'
+    'languages/*', 'wsdl/*', '*.php', 'readme.txt', 'lib/**'
   ])
     .pipe( rsync({
       root: './',
