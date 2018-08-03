@@ -1,0 +1,28 @@
+{
+    "name": "dazzet/woocommerce-coordinadora",
+    "description": "Woocomerce integration with Coordinadora Mercantil",
+    "type": "wordpress-plugin",
+    "require": {
+        "php": "^7.0"
+    },
+    "license": "Commercial",
+    "authors": [
+        {
+            "name": "Mario Yepes",
+            "email": "mario.yepes@dazzet.co"
+        }
+    ],
+    "minimum-stability": "RC",
+    "autoload": {
+      "psr-4": {
+        "WcCoordinadora\\": "lib/"
+      }
+    },
+    "scripts": {
+      "rsync": [
+        "composer update -o",
+        "rsync -avz -e ssh --delete --exclude .git ./* /var/www/wp/wp-content/plugins/woocommerce-coordinadora/",
+        "composer update"
+      ]
+    }
+}
