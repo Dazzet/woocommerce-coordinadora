@@ -1,12 +1,26 @@
-<?php namespace WCCoordinadora;
+<?php namespace WcCoordinadora;
 
-include __DIR__ . '/lib/autoload.php';
+ini_set("soap.wsdl_cache_enabled", 0);
 
-$client = new \SoapClient('http://sandbox.coordinadora.com/ags/1.4/server.php?wsdl');
+include __DIR__ . '/vendor/autoload.php';
+
+$dotenv = new \Dotenv\Dotenv(__DIR__);
+$dotenv->load();
+
+$client = new \SoapClient(getenv('WSDL_AGS'), array('trace' => 1));
+
+$in = Webservice\Seguimiento_detalladoIn::instance()
+    ->set('codigo_remision', '8787878')
+    ->set('nit', getenv('NIT'))
+    ->set('div', '')
+    ->set('referencia', '')
+    ->set('imagen', 1)
+    ->set('anexo', 1)
+    ->set('apikey', getenv('APIKEY'))
+    ->set('clave', getenv('CLAVE'));
+
 
 Webservice\Ags::instance($client)
     ->start()
-    ->exe('departamentos')
-    ->printR()
-    ->exe('ciudades')
+    ->exe('seguimiento', $in)
     ->printR();

@@ -24,5 +24,8 @@
         "rsync -avz -e ssh --delete --exclude .git ./* /var/www/wp/wp-content/plugins/woocommerce-coordinadora/",
         "composer update"
       ]
+    },
+    "require-dev": {
+        "vlucas/phpdotenv": "^2.5"
     }
 }
