@@ -1,4 +1,4 @@
-<?php namespace WCCoordinadora\Wordpress;
+<?php namespace WcCoordinadora\Wordpress;
 
 /**
  * Creates the options inside the MyAccount page

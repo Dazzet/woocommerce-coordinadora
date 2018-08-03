@@ -1,4 +1,4 @@
-<?php namespace WCCoordinadora\Webservice;
+<?php namespace WcCoordinadora\Webservice;
 
 use SoapClient;
 
@@ -91,6 +91,9 @@ class Ags
         case 'ciudades':
             $this->result = $this->client->Cotizador_ciudades();
             break;
+        case 'seguimiento':
+            print_r($parameters);
+            $this->result = $this->client->Seguimiento_detallado(array('p' => $parameters));
         }
 
         return $this;

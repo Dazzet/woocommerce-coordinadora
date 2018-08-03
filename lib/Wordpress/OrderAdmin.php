@@ -1,4 +1,4 @@
-<?php namespace WCCoordinadora\Wordpress;
+<?php namespace WcCoordinadora\Wordpress;
 
 /**
  * Create a meta-box on the order page

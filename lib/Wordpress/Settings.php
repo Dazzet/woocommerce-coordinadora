@@ -1,4 +1,4 @@
-<?php namespace WCCoordinadora\Wordpress;
+<?php namespace WcCoordinadora\Wordpress;
 
 /**
  * Creates the settings page in Woocommerce > Settings > Coordinadora and process the values
