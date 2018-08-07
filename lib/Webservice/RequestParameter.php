@@ -1,16 +1,7 @@
 <?php namespace WcCoordinadora\Webservice;
 
-class Seguimiento_detalladoIn
+class RequestParameter
 {
-    public $codigo_remision;
-    public $nit;
-    public $div = '';
-    public $referencia = '';
-    public $imagen;
-    public $anexo;
-    public $apikey;
-    public $clave;
-
     static function instance()
     {
         static $obj;

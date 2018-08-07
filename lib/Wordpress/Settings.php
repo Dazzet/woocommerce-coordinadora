@@ -9,9 +9,6 @@ class Settings
     /** @var string Namespace for the Woocommerce tab */
     const SETTINGS_NAMESPACE = 'wc-coordinadora';
 
-    /** Prevent double initialization */
-    private $_initialized = false;
-
     /**
      * Create an unique object
      */
@@ -35,12 +32,9 @@ class Settings
 
     public function start()
     {
-        if (!$this->_initialized) {
-            add_action('woocommerce_settings_tabs_array', array($this, 'addSettingsTabs'), 70);
-            add_action('woocommerce_settings_tabs_'. self::SETTINGS_NAMESPACE , array($this, 'tabContent'));
-            add_action('woocommerce_update_options_'. self::SETTINGS_NAMESPACE, array($this, 'updateSettings' ));
-            $this->_initialized = true;
-        }
+        add_action('woocommerce_settings_tabs_array', array($this, 'addSettingsTabs'), 70);
+        add_action('woocommerce_settings_tabs_'. self::SETTINGS_NAMESPACE , array($this, 'tabContent'));
+        add_action('woocommerce_update_options_'. self::SETTINGS_NAMESPACE, array($this, 'updateSettings' ));
 
         return $this;
     }
@@ -82,9 +76,10 @@ class Settings
                 'desc' => __('Business information required for the WebService'),
             ),
             'client_id' => array(
-                'name' => __('Client VAT or ID', 'wc-coordinadora'),
+                'name' => __('Client NIT', 'wc-coordinadora'),
                 'type' => 'text',
                 'desc' => __('Your business ID or NIT (For Colombia)', 'wc-coordinadora'),
+                'placeholder' => '123456789'
             ),
             'client_div' => array(
                 'name' => __('Client Division', 'wc-coordinadora'),
@@ -102,12 +97,20 @@ class Settings
             ),
             'api_key' => array(
                 'name' => __('Api Key', 'wc-coordinadora'),
-                'type' => 'text'
+                'type' => 'text',
+                'placeholder' => '00000000-0000-0000-0000-000000000000'
             ),
             'api_pass' => array(
                 'name' => __('Api Password', 'wc-coordinadora'),
                 'type' => 'password'
 
+            ),
+            'api_tracking_wsdl' => array(
+                'name' => __('WSDL for package tracking', 'wc-coordinadora'),
+                'type' => 'text',
+                'default' => 'http://sandbox.coordinadora.com/ags/1.4/server.php?wsdl',
+                'placeholder' => 'http://sandbox.coordinadora.com/ags/1.4/server.php?wsdl',
+                'desc' => __('Leave the default if you are not sure', 'wc-coordinadora')
             ),
             'api_info_end' => array(
                 'name' => __('Section End', 'wc-coordinadora'),

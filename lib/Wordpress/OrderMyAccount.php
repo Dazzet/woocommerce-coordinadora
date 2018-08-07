@@ -5,25 +5,34 @@
  */
 class OrderMyAccount
 {
-    static function instance()
+    /** @var \WcCoordinadora\Webservice\Ags Executed the request */
+    protected $requester;
+
+    /** @var \WcCoordinadora\Webservice\RequestParameter paramters for the requester */
+    protected $params;
+
+    static function instance(\WcCoordinadora\Webservice\Ags $requester, \WcCoordinadora\Webservice\RequestParameter  $params)
     {
         static $obj;
         if (!isset($obj)) {
-            $obj = new self();
+            $obj = new self($requester, $params);
         }
         return $obj;
     }
 
-    private function __construct()
+    private function __construct(\WcCoordinadora\Webservice\Ags $requester, \WcCoordinadora\Webservice\RequestParameter  $params)
     {
+        $this->requester = $requester;
+        $this->params = $params;
     }
 
     public function start()
     {
-        add_action('woocommerce_order_details_after_order_table', array($this, 'deliveryInfo'));
+        //add_action('woocommerce_order_details_after_order_table', array($this, 'coordinadoraForm'));
+        add_action('woocommerce_order_details_after_order_table', array($this, 'orderTrack'));
     }
 
-    public function deliveryInfo($order)
+    public function coordinadoraForm($order)
     {
         $postId = $order->get_data()['id'];
         $code = get_post_meta($postId, 'wc_coordinadora_tracking_code', true);
@@ -38,5 +47,14 @@ class OrderMyAccount
         <button class="button" type="submit" ><?php _e('Track', 'wc-coordinadora') ?></button>
     </form>
 <?php
+    }
+
+    public function orderTrack($order)
+    {
+        $postId = $order->get_data()['id'];
+        $code = get_post_meta($postId, 'wc_coordinadora_tracking_code', true);
+        $this->params->set('codigo_remision', $code);
+
+        wp_die($this->requester->exe('seguimiento', $this->params));
     }
 }

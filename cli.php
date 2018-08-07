@@ -9,7 +9,7 @@ $dotenv->load();
 
 $client = new \SoapClient(getenv('WSDL_AGS'), array('trace' => 1));
 
-$in = Webservice\Seguimiento_detalladoIn::instance()
+$in = Webservice\RequestParameter::instance()
     ->set('codigo_remision', '8787878')
     ->set('nit', getenv('NIT'))
     ->set('div', '')

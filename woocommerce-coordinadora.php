@@ -29,12 +29,27 @@ add_filter( 'plugin_action_links_' . plugin_basename(__FILE__), function($links)
    return $links;
 });
 
+
 // Create new tab Woocommerce Settings page
-Wordpress\Settings::instance()->start();
+$settings = Wordpress\Settings::instance()->start();
 
 // Initialize Order meta box
 Wordpress\OrderAdmin::instance()->start();
 
 // if its the order page track order
-Wordpress\OrderMyAccount::instance()->start();
+$client = new \SoapClient( $settings->option('api_tracking_wsdl'), array('trace' => 1));
+
+$ags = Webservice\Ags::instance($client)->start();
+
+$params =  WebService\RequestParameter::instance()
+    ->set('nit', $settings->option('client_id'))
+    ->set('div', $settings->option('client_dif'))
+    ->set('referencia', '')
+    ->set('imagen', 1)
+    ->set('anexo', 1)
+    ->set('apikey', $settings->option('api_key'))
+    ->set('clave', $settings->option('api_pass'));
+//    ->set('codigo_remision', '8787878')
+
+Wordpress\OrderMyAccount::instance($ags, $params)->start();
 
