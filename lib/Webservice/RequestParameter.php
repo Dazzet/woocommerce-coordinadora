@@ -16,4 +16,9 @@ class RequestParameter
         $this->$name = $value;
         return $this;
     }
+
+    public function test($x, $y)
+    {
+        return $x + $y;
+    }
 }

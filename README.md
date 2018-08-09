@@ -2,13 +2,20 @@
 
 Enable package tracking with Coordinadora Mercantil (coordinadora.com)
 
-## Installation
+## Development setup
+Make sure you have composer installed and you have the `composer` command available globaly 
 
-1. Load zip file for the plugin to the server inside `/path/to/wp/wp-content/plugins`
-2. Uncompress plugins
-3. Go to the WordPress dashboard and activate _IHS MISC Functions_ plugin
+In the terminal execute the following commands
 
-## Usage
+```bash
+composer update
+alias p="./vendor/bin/phpunit" 
+```
+That last line make the command `p` the commando for unit testing
 
-
-
+## Integration testing
+For testing, the integration values are extracted from the .env file wich you have to create using the follogin command
+```bash
+cp .env.example .env
+```
+After that you have to provide the `CLAVE`, `NIT` and `APIKEY` values

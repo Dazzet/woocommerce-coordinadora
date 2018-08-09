@@ -92,7 +92,6 @@ class Ags
             $this->result = $this->client->Cotizador_ciudades();
             break;
         case 'seguimiento':
-            print_r($parameters);
             $this->result = $this->client->Seguimiento_detallado(array('p' => $parameters));
         }
 
@@ -108,6 +107,5 @@ class Ags
 
         return $this;
     }
-
 
 }

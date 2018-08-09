@@ -20,12 +20,13 @@
     },
     "scripts": {
       "rsync": [
-        "composer update -o",
+        "composer update -o --no-dev",
         "rsync -avz -e ssh --delete --exclude .git ./* /var/www/wp/wp-content/plugins/woocommerce-coordinadora/",
         "composer update"
       ]
     },
     "require-dev": {
-        "vlucas/phpdotenv": "^2.5"
+        "vlucas/phpdotenv": "^2.5",
+        "phpunit/phpunit": "^7.3"
     }
 }
