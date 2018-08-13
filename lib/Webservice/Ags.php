@@ -10,18 +10,21 @@ class Ags
     /** @var string wsdl path (https or file) */
     private $wsdl;
 
-    /** @var SoapClietn Soap client */
+    /** @var SoapClient Soap client */
     private $client;
 
-    /** @ var bool Is the current object initialized? */
-    private $_initialized = false;
+    /** @var string Name of the Soap action to execute on next request */
+    private $action;
+
+    /** #var RequestParameter The parameters for the next call */
+    private $requestParameters = null;
 
     /**
      * Creates an unique instance of the Ags WebService client
      * @param string $wsdl Path (local or http(s) ) to the WSDL description
      * @link http://sandbox.coordinadora.com/ags/1.4/server.php?doc
      */
-    static function instance($client)
+    static function instance(SoapClient $client)
     {
         static $obj;
         if (!isset($obj)) {
@@ -30,7 +33,7 @@ class Ags
         return $obj;
     }
 
-    private function __construct($client)
+    private function __construct(SoapClient $client)
     {
         $this->client = $client;
     }
@@ -47,12 +50,12 @@ class Ags
      * Unique getter of variables
      * @param string $name Name of the variable to retreive
      */
-    public function get($name)
+    public function get(string $action)
     {
-        if (!in_array(array('client', '_initialized'))) {
-            return $this->$name;
-        }
+        $this->action = $action;
+        return $this;
     }
+
 
     /**
      * Unique setter
@@ -61,38 +64,38 @@ class Ags
      * @param string|array $name The name of the variable to set
      * @param mixed $value the value to set ONLY if $name is not an array
      */
-    public function set($name, $value = null)
+    public function set( RequestParameter $parameters)
     {
-        if (!is_array($name)) {
-            $name = array($name => $value);
-        }
-        foreach ($name as $k => $v) {
-            if (!in_array(array('client', 'result', '_initialized'))) {
-                $this->$k = $v;
-            }
-        }
+        $this->requestParameters = $parameters;
         return $this;
     }
 
-    /**
-     * Name of the method to execute
-     * Here is the list of methods http://sandbox.coordinadora.com/ags/1.4/server.php?doc
-     * @link http://sandbox.coordinadora.com/ags/1.4/server.php?doc
-     * @param string $method Method to execute WITHOUT Cotizador_|Recaudos_|Recogidas_|Segimiento_ sufix
-     * @param array $parameters Any parameters that the webservice requires as an associative array
-     *
-     */
-    public function exe($method, $parameters = null)
+    public function with(RequestParameter $parameters)
     {
-        switch ($method) {
+        return $this->set($parameters);
+    }
+
+    /**
+     * Execute $this->action with $this->requestParameters on the remote
+     * webservice
+     */
+    public function exe()
+    {
+        switch ($this->action) {
         case 'departamentos':
-            $this->result = $this->client->Cotizador_departamentos();
+            $res = $this->client->Cotizador_departamentos();
+            $this->result = $res->Cotizador_departamentosResult->item;
             break;
         case 'ciudades':
-            $this->result = $this->client->Cotizador_ciudades();
+            $res = $this->client->Cotizador_ciudades();
+            $this->result = $res->Cotizador_ciudadesResult->item;
             break;
         case 'seguimiento':
-            $this->result = $this->client->Seguimiento_detallado(array('p' => $parameters));
+            if (empty($this->requestParameters)) {
+                throw new Exeption(__('You can not call exe() without parameters', 'wc-coordinadora'));
+            }
+            $res = $this->client->Seguimiento_detallado(array('p' => $this->requestParameters));
+            $this->result = $res->Cotizador_departamentosResult->item;
         }
 
         return $this;
@@ -106,6 +109,11 @@ class Ags
         print_r($this->result);
 
         return $this;
+    }
+
+    public function result()
+    {
+        return $this->result;
     }
 
 }

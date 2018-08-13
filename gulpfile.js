@@ -10,7 +10,7 @@ nconf.set('path', '/var/www/wp/wp-content/plugins/woocoomerce-coordinadora/');
 nconf.set('user', '');
 nconf.argv().env().file( { file: 'conf.json'});
 
-gulp.task('rsync', function() {
+gulp.task('rsync', ['optimize'], function() {
   const dirname = path.basename(__dirname);
 
   return gulp.src([
@@ -28,6 +28,9 @@ gulp.task('rsync', function() {
       exclude: ['*.js', '*.md']
     }));
 });
+
+gulp.task('optimize', shell.task('composer update --no-dev -o'));
+gulp.task('un-optimize', shell.task('composer update '));
 
 gulp.task('default', function() {
   console.log('Create a conf.json file with the "host", "path" and "username" parammeters');
