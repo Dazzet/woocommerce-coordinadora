@@ -10,9 +10,9 @@ $dotenv->load();
 $client = new \SoapClient(getenv('WSDL_AGS'), array('trace' => 1));
 
 $in = Webservice\RequestParameter::instance()
-    ->set('codigo_remision', '8787878')
+    ->set('codigo_remision', '85110000010')
     ->set('nit', getenv('NIT'))
-    ->set('div', '')
+    ->set('div', '02')
     ->set('referencia', '')
     ->set('imagen', 1)
     ->set('anexo', 1)
@@ -24,3 +24,4 @@ Webservice\Ags::instance($client)
     ->start()
     ->exe('seguimiento', $in)
     ->printR();
+
