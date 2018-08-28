@@ -9,7 +9,9 @@ cd /path/to/wp/wp-content/plugins/
 git clone git@bitbucket.org:dazzet/woocommerce-coordinadora.git
 cd woocommerce-coordinadora
 composer install
+alias p="./vendor/bin/phpunit" 
 ```
+That last line make the command `p` the command for unit testing
 
 ## Deployment on a test server
 
@@ -30,6 +32,13 @@ rsync -avz -e ssh --delete --exclude=.git* --exclude=*.zip --exclude=.DS_Store .
 composer dump-autoload --no-dev -o
 composer zip
 ```
+
+## Integration testing
+For testing, the integration values are extracted from the .env file wich you have to create using the follogin command
+```bash
+cp .env.example .env
+```
+After that you have to provide the `CLAVE`, `NIT` and `APIKEY` values
 
 ## Translation
 

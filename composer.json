@@ -22,6 +22,7 @@
       "zip": "rm -f ${T_DIR}.zip && T_DIR=`basename ${PWD}` && cd .. && zip -r ${T_DIR}/${T_DIR}.zip ${T_DIR} -x *.git* -x ${T_DIR}/README.md -x ${T_DIR}/composer.* -x ${T_DIR}/*.zip "
     },
     "require-dev": {
-        "vlucas/phpdotenv": "^2.5"
+        "vlucas/phpdotenv": "^2.5",
+        "phpunit/phpunit": "^7.3"
     }
 }
