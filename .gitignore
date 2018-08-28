@@ -1,5 +1,7 @@
-.env
-conf.json
-*~
+/.env
+/conf.json
 /node_modules/
 /vendor/
+/deploy.sh
+/*.zip
+*~

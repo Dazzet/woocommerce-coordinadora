@@ -19,11 +19,7 @@
       }
     },
     "scripts": {
-      "rsync": [
-        "composer update -o",
-        "rsync -avz -e ssh --delete --exclude .git ./* /var/www/wp/wp-content/plugins/woocommerce-coordinadora/",
-        "composer update"
-      ]
+      "zip": "rm -f ${T_DIR}.zip && T_DIR=`basename ${PWD}` && cd .. && zip -r ${T_DIR}/${T_DIR}.zip ${T_DIR} -x *.git* -x ${T_DIR}/README.md -x ${T_DIR}/composer.* -x ${T_DIR}/*.zip "
     },
     "require-dev": {
         "vlucas/phpdotenv": "^2.5"
