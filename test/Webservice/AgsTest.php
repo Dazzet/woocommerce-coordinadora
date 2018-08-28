@@ -51,10 +51,14 @@ class AgsTest extends PHPUnit\Framework\TestCase
 
     public function testSeguimientoDetallado()
     {
-        $this->para->set('referencia', '');
         $this->para->set('codigo_remision', '85110000010');
-        //die(print_r($this->para, true));
-        $res = $this->ags->get('seguimiento')->with($this->para)->exe();
+        $res = $this->ags->get('seguimiento')->with($this->para)->exe()->result();
+        // die(print_r($res,true));
+        $this->assertInternalType('object', $res);
+        $this->assertEquals('85110000010', $res->codigo_remision);
+        $this->assertEquals('6', $res->producto);
+        $mime_type = finfo_buffer(finfo_open(), base64_decode($res->imagen), FILEINFO_MIME_TYPE);
+        $this->assertEquals('image/jpeg', $mime_type);
     }
 
 

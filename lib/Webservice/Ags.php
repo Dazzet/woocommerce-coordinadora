@@ -21,7 +21,7 @@ class Ags
 
     /**
      * Creates an unique instance of the Ags WebService client
-     * @param string $wsdl Path (local or http(s) ) to the WSDL description
+     * @param SoapClient $client the initialized client
      * @link http://sandbox.coordinadora.com/ags/1.4/server.php?doc
      */
     static function instance(SoapClient $client)
@@ -47,8 +47,9 @@ class Ags
     }
 
     /**
-     * Unique getter of variables
-     * @param string $name Name of the variable to retreive
+     * The infomration to get
+     *
+     * Ags::start($client)->get('despacho')->result()
      */
     public function get(string $action)
     {
@@ -58,11 +59,9 @@ class Ags
 
 
     /**
-     * Unique setter
-     * if $name is an array, you can set multiple variables at onece
+     * Sets the request parameters
      *
-     * @param string|array $name The name of the variable to set
-     * @param mixed $value the value to set ONLY if $name is not an array
+     * @param RequestParameter $parameters The parameters for the WebService
      */
     public function set( RequestParameter $parameters)
     {
@@ -70,13 +69,16 @@ class Ags
         return $this;
     }
 
+    /**
+     * Alias of the set() function
+     */
     public function with(RequestParameter $parameters)
     {
         return $this->set($parameters);
     }
 
     /**
-     * Execute $this->action with $this->requestParameters on the remote
+     * Execute the action set on this->set($action)
      * webservice
      */
     public function exe()
@@ -95,7 +97,7 @@ class Ags
                 throw new Exeption(__('You can not call exe() without parameters', 'wc-coordinadora'));
             }
             $res = $this->client->Seguimiento_detallado(array('p' => $this->requestParameters));
-            $this->result = $res->Cotizador_departamentosResult->item;
+            $this->result = $res->Seguimiento_detalladoResult;
         }
 
         return $this;
@@ -111,6 +113,9 @@ class Ags
         return $this;
     }
 
+    /**
+     * Gets the result object
+     */
     public function result()
     {
         return $this->result;
