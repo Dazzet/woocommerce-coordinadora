@@ -43,7 +43,7 @@ $ags = Webservice\Ags::instance($client)->start();
 
 $params =  WebService\RequestParameter::instance()
     ->set('nit', $settings->option('client_id'))
-    ->set('div', $settings->option('client_dif'))
+    ->set('div', $settings->option('client_div'))
     ->set('referencia', '')
     ->set('imagen', 1)
     ->set('anexo', 1)
