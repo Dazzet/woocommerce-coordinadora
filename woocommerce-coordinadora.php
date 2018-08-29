@@ -41,7 +41,7 @@ $client = new \SoapClient( $settings->option('api_tracking_wsdl'), array('trace'
 
 $ags = Webservice\Ags::instance($client)->start();
 
-$params =  WebService\RequestParameter::instance()
+$params =  Webservice\RequestParameter::instance()
     ->set('nit', $settings->option('client_id'))
     ->set('div', $settings->option('client_div'))
     ->set('referencia', '')

@@ -9,21 +9,24 @@ cd /path/to/wp/wp-content/plugins/
 git clone git@bitbucket.org:dazzet/woocommerce-coordinadora.git
 cd woocommerce-coordinadora
 composer install
-alias p="./vendor/bin/phpunit" 
+alias p="./vendor/bin/phpunit"
 ```
 That last line make the command `p` the command for unit testing
 
-## Deployment on a test server
+## Fast deployment on a test server
+This is just a tip in case you want to do a fast deployment on a test server. Not recommended for production since it can be dangerous and you need `ssh` access.
 
-You can save this script in a file called `deploy.sh` changing the `path` and the `username` of the remote server
+You can save the following script in a file called `deploy.sh` changing the `path` and the `username` of the remote server
+
 ```bash
 REMOTE_USER=myusername
 REMOTE_SERVER=example.com
 REMOTE_PATH=/path/to/wp/wp-content/plugins/`basename ${PWD}` # No trailing '/'
+EXCLUDE="--exclude=.* --exclude=*.sh --exclude=*.zip --exclude=*.md --exclude=composer* --exclude=phpunit* --exclude=test "
 
 composer dump-autoload --no-dev -o
 
-rsync -avz -e ssh --delete --exclude=.git* --exclude=*.zip --exclude=.DS_Store ./* ${REMOTE_USER}@${REMOTE_SERVER}:${REMOTE_PATH}/
+rsync -avz -e ssh --delete ${EXCLUDE} ./* ${REMOTE_USER}@${REMOTE_SERVER}:${REMOTE_PATH}/
 ```
 
 ## Create zip plugin file
