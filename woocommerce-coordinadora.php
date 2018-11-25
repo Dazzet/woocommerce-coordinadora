@@ -1,11 +1,11 @@
 <?php namespace WcCoordinadora;
 
 /**
- * Plugin Name: Woocommerce Coordinadora
+ * Plugin Name: Coordinadora Mercantil WooCommerce Shipping Method
  * Plugin URI: https://dazzet.co
- * Description: Package tracking from Coordinadora Mercantil in Colombia
- * Version: 0.1
- * Author: Mario Yepes <mario.yepes@dazzet.co>
+ * Description: Coordinadora Shipping Method Plugin for Woocommerce
+ * Version: 1.0
+ * Author: Mario Yepes <marioy47@gmail.com>
  * Text Domain: wc-coordinadora
  * Domain Path: /languages
  */

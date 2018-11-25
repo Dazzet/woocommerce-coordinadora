@@ -1,17 +1,20 @@
-# Woocommerce Coordinadora Tracking
+# Woocommerce Coordinadora Mercantil Tracking
 
 Enable package tracking with Coordinadora Mercantil (coordinadora.com)
+
+![](screenshots/screenshot-1.png | width=250)
+![](screenshots/screenshot-2.png | width=250)
+![](screenshots/screenshot-3.png | width=250)
+![](screenshots/screenshot-4.png | width=250)
 
 ## Development setup
 
 ```bash
 cd /path/to/wp/wp-content/plugins/
-git clone git@bitbucket.org:dazzet/woocommerce-coordinadora.git
+git clone git@github.com:Dazzet/woocommerce-coordinadora.git
 cd woocommerce-coordinadora
 composer install
-alias p="./vendor/bin/phpunit"
 ```
-That last line make the command `p` the command for unit testing
 
 ## Fast deployment on a test server
 This is just a tip in case you want to do a fast deployment on a test server. Not recommended for production since it can be dangerous and you need `ssh` access.
@@ -29,19 +32,12 @@ composer dump-autoload --no-dev -o
 rsync -avz -e ssh --delete ${EXCLUDE} ./* ${REMOTE_USER}@${REMOTE_SERVER}:${REMOTE_PATH}/
 ```
 
-## Create zip plugin file
-
-```bash
-composer dump-autoload --no-dev -o
-composer zip
-```
-
 ## Integration testing
 For testing, the integration values are extracted from the .env file wich you have to create using the follogin command
 ```bash
 cp .env.example .env
 ```
-After that you have to provide the `CLAVE`, `NIT` and `APIKEY` values
+After that you have to provide the `CLAVE`, `NIT` and `APIKEY` values which are provided by _Coordinadora Mercantil_
 
 ## Translation
 
