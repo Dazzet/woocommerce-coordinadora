@@ -1,7 +1,7 @@
 <?php namespace WcCoordinadora;
 
 /**
- * Plugin Name: Coordinadora Mercantil WooCommerce Shipping Method
+ * Plugin Name: Woocommerce Coordinadora
  * Plugin URI: https://dazzet.co
  * Description: Coordinadora Shipping Method Plugin for Woocommerce
  * Version: 1.0
