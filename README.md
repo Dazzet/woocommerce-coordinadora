@@ -3,6 +3,7 @@
 Enable package tracking with Coordinadora Mercantil (coordinadora.com)
 
 ![](screenshots/screenshot-1.png)
+![](screenshots/screenshot-4.png)
 
 ## Development setup
 
